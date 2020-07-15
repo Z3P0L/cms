@@ -1,3 +1,9 @@
+<?php
+
+$user
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,9 +20,4 @@
         <br><input type="submit" value="Register"></br>
   
 </body>
-<?php
-
-$user
-
-?>
 </html>
