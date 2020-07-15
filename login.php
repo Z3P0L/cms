@@ -13,9 +13,9 @@ $user
 </head>
 <body>
 
-    <form method="POST" actio="login.php">
+    <form method="POST" action="login.php">
         <h1>Login</h1>
-        <br>User <input type="text" name="user"></br>
+        <br>username <input type="text" name="username"></br>
         <br>Password <input type="password" name="password"></br>
         <br><input type="submit" value="Register"></br>
   

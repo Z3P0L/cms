@@ -12,7 +12,7 @@ class database {
         }
 
         public function query($sql){
-            $response = $this->$connection->query($sql);
+            $response = $this->connection->query($sql);
             return $response;
         }
 
