@@ -6,13 +6,15 @@ class user {
     public $password;
     private $database;
 
+
+    public function __construct(){
+        $this->database = new database ("localhost", "cms", "admin", "");
+    }
+
     public function insert(){
         $sql = "INSERT INTO user(username, password) VALUES('" . $this->username . ", '" . $this->password . "')";
     }
 
-    public function __construct(){
-        $this->database = new database ("localhost", "admin", "");
-    }
 
 }
 
