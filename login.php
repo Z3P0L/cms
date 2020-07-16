@@ -6,13 +6,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   $username = $_POST['username'];
   $password = $_POST['password'];
+  $hash = password_hash($password);
 
   $user = new user();
   $user->username = $username;
   $result = $user->getByUsername();
 
   if ($result === false) exit("Usuario no registrado");
-  if ($user->password !== $password) exit("Usuario o contraseña incorrecta");
+  if ($user->password !== $password) exit("Contraseña incorrecta");
 
   exit("Success");
 }

@@ -7,12 +7,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   $bring = new user();
   $username = $_POST["username"];
   $password = $_POST["password"];
+  $hash = password_hash($password, PASSWORD_DEFAULT);
+
 
   $bring->username = $username;
-  $bring->password = $password;
+  $bring->password = $hash;
   $bring->insert();
 
-  header('Location: login.php');
+  // header('Location: login.php'); // Redirecciona al login
 
 }
 
@@ -31,7 +33,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <form method="POST" action="register.php">
         <h1>Register</h1>
-        <br>Username <input type="text" name="username"></br>
+        <br>username <input type="text" name="username"></br>
         <br>Password <input type="password" name="password"></br>
         <br><input type="submit" value="Register"></br>
     </form>

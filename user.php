@@ -13,7 +13,7 @@ class user {
 
     public function insert(){
         // Insertamos un elemento en la tabla user con los valores que tenemos en la instancia actualmente
-        $sql = "INSERT INTO user(username, password) VALUES('" . $this->username . "', '" . $this->password . "')";
+        $sql = "INSERT INTO user(username, password) VALUES('" . $this->username . "', '" . $this->password . "')"; 
         $this->database->query($sql);
     }
 
@@ -26,15 +26,15 @@ class user {
         // en forma de objeto(que seria como una clase por eso accedemos a las columnas como propiedades)
         $user_data = $result->fetch_object();
 
-        // verificamos que nos haya retornado algo la base de datos
+        // Verificamos que nos haya retornado algo la base de datos
         if($user_data === NULL) return false;
 
-        // asignamos el resultado que obtuvimos de la db en esta misma clase
+        // Asignamos el resultado que obtuvimos de la db en esta misma clase
         $this->username = $user_data->username;
-        $this->password = $user_data->password;
+        $this->password = $user_data->$password;
         $this->id = $user_data->id;
 
-        // todo bien puto retornamos true
+        // Retornamos true
         return true;
     }
 }
