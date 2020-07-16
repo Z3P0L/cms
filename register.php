@@ -12,6 +12,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   $bring->password = $password;
   $bring->insert();
 
+  header('Location: login.php');
+
 }
 
 
