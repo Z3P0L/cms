@@ -1,8 +1,8 @@
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  include("database.php");
-  include("user.php");
+  include("../db/database.php");
+  include("../db/user.php");
 
   $username = $_POST['username'];
   $password = $_POST['password'];
@@ -24,9 +24,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if ($result === false) exit("Usuario no registrado");
   if (!password_verify($password, $user->password)) exit("Usuario o contraseña incorrecta");
 
-  exit("Success");
-  // header('Location: /site/index.php');
+  session_start();
+  $_SESSION['login'] = $username;
 
+  //exit("Success");
+  header('Location: ../index.php');
   }
 
   else{

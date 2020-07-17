@@ -1,9 +1,9 @@
 <?php
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-  include("database.php");
-  include("user.php");
-  include("utils.php");
+  include("../db/database.php");
+  include("../db/user.php");
+  include("../db/utils.php");
 
   $valid = true;
   $bring = new user();
@@ -38,7 +38,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $bring->password = $hash;
     $bring->insert();
   
-    header('Location: login.php'); // Redirecciona al login
+    header('Location: /mnt/c/Users/user/Desktop/cms/login/login.php'); // Redirecciona al login
   }
 }
 ?>
