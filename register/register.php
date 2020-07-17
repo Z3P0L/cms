@@ -38,7 +38,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $bring->password = $hash;
     $bring->insert();
   
-    header('Location: /mnt/c/Users/user/Desktop/cms/login/login.php'); // Redirecciona al login
+    header('Location: ../login/login.php'); // Redirecciona al login
   }
 }
 ?>
