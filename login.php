@@ -6,16 +6,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   $username = $_POST['username'];
   $password = $_POST['password'];
-  $hash = password_hash($password);
+  $valid = true;
+
+  if (empty($username)){
+    $valid = false;
+  }
+
+  if (empty($password)){
+    $valid = false;
+  }
 
   $user = new user();
   $user->username = $username;
   $result = $user->getByUsername();
 
+  if($valid){
   if ($result === false) exit("Usuario no registrado");
-  if ($user->password !== $password) exit("Contraseña incorrecta");
+  if (!password_verify($password, $user->password)) exit("Usuario o contraseña incorrecta");
 
   exit("Success");
+  // header('Location: /site/index.php');
+
+  }
+
+  else{
+    echo "<h2> Faltan espacios por llenar </h2>";
+  }
 }
 ?>
 <!DOCTYPE html>

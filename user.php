@@ -31,7 +31,7 @@ class user {
 
         // Asignamos el resultado que obtuvimos de la db en esta misma clase
         $this->username = $user_data->username;
-        $this->password = $user_data->$password;
+        $this->password = $user_data->password;
         $this->id = $user_data->id;
 
         // Retornamos true
