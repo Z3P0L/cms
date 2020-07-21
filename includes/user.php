@@ -1,15 +1,10 @@
 <?php
 
-class user {
+class user extends model {
 
     public $id;
     public $username;
     public $password;
-    private $database;
-
-    public function __construct(){
-        $this->database = new database ("localhost", "admin", "", "cms");
-    }
 
     public function insert(){
         // Insertamos un elemento en la tabla user con los valores que tenemos en la instancia actualmente

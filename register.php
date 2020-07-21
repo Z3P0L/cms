@@ -1,9 +1,10 @@
 <?php
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-  include("../db/database.php");
-  include("../db/user.php");
-  include("../db/utils.php");
+  include("includes/database.php");
+  include("includes/model.php");
+  include("includes/user.php");
+  include("includes/utils.php");
 
   $valid = true;
   $bring = new user();
@@ -38,31 +39,31 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $bring->password = $hash;
     $bring->insert();
   
-    header('Location: ../login/login.php'); // Redirecciona al login
+    header('Location: /login.php'); // Redirecciona al login
   }
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CMS</title>
+<?php include("meta.php"); ?>
 </head>
 <body>
-  <form method="POST" action="register.php">
     <h1>Register</h1>
-    <label>
-      username 
-      <input type="text" name="username">
-    </label>
-    <label>
-      Password 
-      <input type="password" name="password">
-    </label>
-    <label>
-    <button>Registrar</button>
-    </label>
-  </form>
+    <form method="POST" action="register.php">
+        <div class="field">
+            <label class="label">Username</label>
+            <div class="control">
+                <input class="input" type="text" name="username">
+            </div>
+        </div>
+        <div class="field">
+            <label class="label">Password</label>
+            <div class="control">
+                <input class="input" type="password" name="password">
+            </div>
+        </div>
+        <button class="button">Registrar</button>
+    </form>
 </body>
 </html>
