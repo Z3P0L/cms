@@ -5,10 +5,11 @@ class user extends model {
     public $id;
     public $username;
     public $password;
+    public $admin;
 
     public function insert(){
         // Insertamos un elemento en la tabla user con los valores que tenemos en la instancia actualmente
-        $sql = "INSERT INTO user(username, password) VALUES('" . $this->username . "', '" . $this->password . "')"; 
+        $sql = "INSERT INTO user(username, password, admin) VALUES('" . $this->username . "', '" . $this->password . "', '" . $this->admin . "')"; 
         $this->database->query($sql);
     }
 
@@ -27,7 +28,8 @@ class user extends model {
         // Asignamos el resultado que obtuvimos de la db en esta misma clase
         $this->username = $user_data->username;
         $this->password = $user_data->password;
-        $this->id = $user_data->id;
+        $this->admin = $user_data->admin;
+        $this->id = $user_data->ID;
 
         // Retornamos true
         return true;

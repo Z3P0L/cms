@@ -33,4 +33,10 @@ class model {
         $result = $this->database->query($sql);
         return $result->fetch_object();
     }
+
+    public function deletePost($ID){
+        $tableName = $this->getTableName();
+        $sql = "DELETE FROM " . $tableName . " WHERE ID = " . $ID;
+        $result = $this->database->query($sql);
+    }
 }

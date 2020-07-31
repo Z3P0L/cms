@@ -37,6 +37,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $hash = password_hash($password, PASSWORD_DEFAULT);
     $bring->username = $username;
     $bring->password = $hash;
+    $bring->admin = 'no_admin';
     $bring->insert();
   
     header('Location: /login.php'); // Redirecciona al login
@@ -64,6 +65,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
         </div>
         <button class="button">Registrar</button>
+        <a button class="button" href="login.php">¿Ya tienes cuenta?</a>
     </form>
 </body>
 </html>

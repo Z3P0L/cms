@@ -1,9 +1,10 @@
 <?php
+include("includes/database.php");
+include("includes/model.php");
+include("includes/user.php");
+session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  include("includes/database.php");
-  include("includes/model.php");
-  include("includes/user.php");
 
   $username = $_POST['username'];
   $password = $_POST['password'];
@@ -24,8 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if ($valid) {
     if ($result === false) exit("Usuario no registrado");
     if (!password_verify($password, $user->password)) exit("Usuario o contraseña incorrecta");
+    if ($user->admin === 'is_admin') $_SESSION['is_admin'] = true;
 
-    session_start();
     $_SESSION['login'] = $username;
 
     header('Location: ../index.php');
@@ -55,6 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
         <button class="button">Entrar</button>
+        <a button class="button" href="register.php">¿No tienes cuenta?</a>
     </form>
 </body>
 </html>
